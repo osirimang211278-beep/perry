@@ -18,12 +18,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector(".nav-links");
 
     if (navToggle && navLinks) {
+        const closeMobileNav = () => {
+            navLinks.setAttribute("data-visible", "false");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.classList.remove("open");
+        };
+
+        const openMobileNav = () => {
+            navLinks.setAttribute("data-visible", "true");
+            navToggle.setAttribute("aria-expanded", "true");
+            navToggle.classList.add("open");
+        };
+
+        const updateNavOnResize = () => {
+            if (window.innerWidth > 980) {
+                navLinks.removeAttribute("data-visible");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.classList.remove("open");
+            } else {
+                closeMobileNav();
+            }
+        };
+
         navToggle.addEventListener("click", () => {
             const isOpen = navLinks.getAttribute("data-visible") === "true";
-            navLinks.setAttribute("data-visible", String(!isOpen));
-            navToggle.setAttribute("aria-expanded", String(!isOpen));
-            navToggle.classList.toggle("open", !isOpen);
+            if (isOpen) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
         });
+
+        window.addEventListener("resize", updateNavOnResize);
 
         document.addEventListener("click", (event) => {
             if (
@@ -31,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 !navToggle.contains(event.target) &&
                 navLinks.getAttribute("data-visible") === "true"
             ) {
-                navLinks.setAttribute("data-visible", "false");
-                navToggle.setAttribute("aria-expanded", "false");
-                navToggle.classList.remove("open");
+                closeMobileNav();
             }
         });
+
+        updateNavOnResize();
     }
 
     const backToTopButton = document.querySelector(".back-to-top");
