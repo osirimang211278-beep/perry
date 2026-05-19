@@ -369,27 +369,49 @@
     .card-body {
         padding: 2rem 1.8rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        min-height: 310px;
+        justify-content: space-between;
     }
     
     .card-body h4 {
         font-size: 1.45rem;
         color: #3b2a1a;
-        margin-bottom: 0.7rem;
-        font-weight: 600;
+        margin-bottom: 0;
+        font-weight: 700;
+        line-height: 1.2;
     }
     
     .card-body .price {
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-size: 1.55rem;
+        font-weight: 800;
         color: #6f4e37;
-        margin: 0.4rem 0 0.8rem;
+        margin: 0.3rem 0 0.6rem;
     }
     
     .card-body .desc {
         font-size: 1.05rem;
         color: #6f4e37;
         opacity: 0.88;
-        margin-bottom: 1.8rem;
+        margin-bottom: 0;
+        line-height: 1.7;
+    }
+    
+    .book-btn {
+        width: 100%;
+        background: linear-gradient(90deg, #8d6e63, #6f4e37);
+        color: #fff;
+        padding: 1rem 1.5rem;
+        border-radius: 999px;
+        font-weight: 700;
+        box-shadow: 0 14px 30px rgba(111, 78, 55, 0.25);
+    }
+    
+    .book-btn:hover {
+        background: linear-gradient(90deg, #a67f6f, #8d6e63);
+        transform: translateY(-2px);
     }
     
     .whatsapp-btn {
