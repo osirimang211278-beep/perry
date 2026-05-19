@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Perry Hair - Premium Hair Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 class="logo">Perry Hair | Premium Hair Store</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links" data-visible="false">
+            <a href="index.html">Home</a>
+            <a href="products.html">Our Hair Collections</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <section class="contact-section fade-up">
+        <div class="section-header fade-up">
+            <h3>Get In Touch With Us</h3>
+            <p>Have questions about our collections or ready to place an order? We're here to help — reach out anytime!</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h4>Whatsapp</h4>
+                    <p class="big-number">+234 704 785 3980</p>
+                    <p>Fastest way to get in touch — send us a message with your preferred style or questions.</p>
+                    <a href="https://wa.me/2347047853980?text=Hello%20Perry%20Hair!%20I'm%20interested%20in..." class="btn whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                        Chat On Whatsapp
+                    </a>
+                </div>
+
+                <div class="info-card">
+                    <h4>Business Hours</h4>
+                    <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                    <p>Sunday: Closed (online orders still welcome)</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Location</h4>
+                    <p>Lagos, Nigeria</p>
+                    <p>(Nationwide delivery available)</p>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h4>Send us a quick message</h4>
+                <form id="contact-form" action="https://formspree.io/f/mvzwqqya" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="phone" placeholder="Phone/Whatsapp Number" required>
+                    <input type="email" name="_replyto" placeholder="Your Email/Optional">
+                    <textarea name="message" placeholder="Tell us what you are looking for..." rows="5" required></textarea>
+
+                    <input type="hidden" name="_subject" value="New Inquiry from Perry Hair Website">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+                <div id="form-message" class="form-message" style="display: none; margin-top: 1.5rem; padding: 1rem; border-radius: 12px; text-align: center;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Perry Hair. All Rights Reserved.</p>
+    </footer>
+
+    <button type="button" class="back-to-top" aria-label="Back to top">
+        <span class="back-to-top__arrow">↑</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

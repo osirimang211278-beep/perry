@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Perry Hair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #120b08;
+            color: #fffaf6;
+            min-height: 100vh;
+            padding-top: 6rem;
+        }
+
+        .cart-banner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .cart-heading {
+            margin-bottom: 1rem;
+            font-size: clamp(3rem, 4.8vw, 4.6rem);
+            line-height: 0.95;
+        }
+
+        .cart-note {
+            color: #d4b8a8;
+            max-width: 740px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .cart-grid {
+            display: grid;
+            grid-template-columns: minmax(320px, 420px) 1fr;
+            gap: 2rem;
+        }
+
+        .cart-summary,
+        .checkout-summary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.30);
+        }
+
+        .cart-summary img {
+            width: 100%;
+            border-radius: 22px;
+            object-fit: cover;
+            display: block;
+            min-height: 320px;
+        }
+
+        .cart-item {
+            margin-top: 1.4rem;
+        }
+
+        .cart-item h2 {
+            margin: 0 0 0.65rem 0;
+            font-size: 2rem;
+        }
+
+        .cart-item p {
+            margin: 0.35rem 0;
+            color: #d4b8a8;
+        }
+
+        .cart-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cart-meta span {
+            display: block;
+            color: #d4b8a8;
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .cart-meta strong {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .quantity-control {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .quantity-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            min-width: 42px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .checkout-summary h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .checkout-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            color: #d4b8a8;
+        }
+
+        .checkout-line strong {
+            color: #ffffff;
+        }
+
+        .checkout-actions {
+            margin-top: 1.8rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .checkout-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.8rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .checkout-actions .confirm-btn {
+            background: linear-gradient(90deg, #8d6e63, #6f4e37);
+            color: #ffffff;
+        }
+
+        .checkout-actions .continue-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        @media (max-width: 860px) {
+            .cart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding-top: 5.5rem;
+            }
+            .cart-banner {
+                padding: 1.5rem 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 class="logo">Perry Hair | Premium Hair Store</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-links" data-visible="false">
+            <a href="index.html">Home</a>
+            <a href="products.html">Our Hair Collections</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main class="cart-banner">
+        <h1 class="cart-heading">Your Cart</h1>
+        <p class="cart-note">Review your reserved hair product before checkout. Update quantity, confirm your chosen slot, or continue shopping for more premium collections.</p>
+
+        <div class="cart-grid">
+            <section class="cart-summary">
+                <img id="cart-image" src="dd.jpg" alt="Product image">
+                <div class="cart-item">
+                    <h2 id="cart-product-name">Selected Hair Product</h2>
+                    <p id="cart-product-description">A premium reserved product ready to be checked out.</p>
+                </div>
+
+                <div class="cart-meta">
+                    <div>
+                        <span>Slot</span>
+                        <strong id="cart-product-slot">Morning Slot</strong>
+                    </div>
+                    <div>
+                        <span>Unit price</span>
+                        <strong id="cart-unit-price">₦0</strong>
+                    </div>
+                </div>
+
+                <div class="quantity-control">
+                    <button type="button" class="quantity-button" id="quantity-decrease">-</button>
+                    <span class="quantity-value" id="quantity-value">1</span>
+                    <button type="button" class="quantity-button" id="quantity-increase">+</button>
+                </div>
+            </section>
+
+            <section class="checkout-summary">
+                <h3>Order Summary</h3>
+                <div class="checkout-line">
+                    <span>Item total</span>
+                    <strong id="checkout-item-total">₦0</strong>
+                </div>
+                <div class="checkout-line">
+                    <span>Delivery fee</span>
+                    <strong>Free</strong>
+                </div>
+                <div class="checkout-line" style="margin-top: 1.5rem; font-size: 1.1rem;">
+                    <span>Total</span>
+                    <strong id="checkout-total">₦0</strong>
+                </div>
+                <div class="checkout-actions">
+                    <a href="#" class="confirm-btn" id="confirm-order">Proceed to Checkout</a>
+                    <a href="products.html" class="continue-btn">Continue Shopping</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const product = params.get('product') || 'Selected Hair Product';
+        const priceValue = params.get('price');
+        const imageName = params.get('image') || 'dd.jpg';
+        const slot = params.get('slot') || 'Morning Slot';
+
+        const unitPrice = priceValue ? Number(priceValue) : 0;
+        let quantity = 1;
+
+        const cartName = document.getElementById('cart-product-name');
+        const cartDescription = document.getElementById('cart-product-description');
+        const cartSlot = document.getElementById('cart-product-slot');
+        const cartImage = document.getElementById('cart-image');
+        const cartUnitPrice = document.getElementById('cart-unit-price');
+        const checkoutItemTotal = document.getElementById('checkout-item-total');
+        const checkoutTotal = document.getElementById('checkout-total');
+        const quantityValue = document.getElementById('quantity-value');
+        const decreaseButton = document.getElementById('quantity-decrease');
+        const increaseButton = document.getElementById('quantity-increase');
+        const confirmOrder = document.getElementById('confirm-order');
+
+        const formatCurrency = (value) => `₦${value.toLocaleString()}`;
+
+        const updateTotals = () => {
+            const subtotal = unitPrice * quantity;
+            cartUnitPrice.textContent = formatCurrency(unitPrice);
+            checkoutItemTotal.textContent = formatCurrency(subtotal);
+            checkoutTotal.textContent = formatCurrency(subtotal);
+            quantityValue.textContent = quantity;
+            confirmOrder.href = `mailto:ositexcreativehub@gmail.com?subject=Checkout%20Request%20for%20${encodeURIComponent(product)}&body=I%20would%20like%20to%20checkout%20${quantity}%20x%20${encodeURIComponent(product)}%20(${encodeURIComponent(slot)})%20for%20${formatCurrency(subtotal)}.`;
+        };
+
+        cartName.textContent = product;
+        cartDescription.textContent = `Reserved product from Perry Hair with your selected slot: ${slot}.`;
+        cartSlot.textContent = slot;
+        cartImage.src = imageName;
+        cartImage.alt = product;
+
+        updateTotals();
+
+        decreaseButton.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity -= 1;
+                updateTotals();
+            }
+        });
+
+        increaseButton.addEventListener('click', () => {
+            quantity += 1;
+            updateTotals();
+        });
+    </script>
+</body>
+
+</html>
